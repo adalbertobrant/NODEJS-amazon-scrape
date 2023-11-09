@@ -34,7 +34,8 @@ const scrapeProducts = async () => {
     await page.waitForNavigation();
     const products = await page.evaluate(() => {
       let results = [];
-      const items = document.querySelectorAll(".s-result-item .s-card-border");
+	//fixing the selector for another one
+      const items = document.querySelectorAll(".s-result-item .sg-col-inner");
       for (let i = items.length; i--; ) {
         const item = items[i];
         const title = item.querySelector("h2 > a > span");
